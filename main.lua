@@ -13,8 +13,6 @@ display.setDefault('background', 59/255, 245/255, 172/255)
 
 --create local variables
 local Triangle
-local HeightOfTriangle = 120
-local BaseOfTriangle = 500
 local Pentagon
 local Quadrilateral
 local Hexagon
@@ -28,7 +26,7 @@ local areaTextP
 local areaTextQ
 
 --draw a triangle
-local Triangle = display.newPolygon(100, 60, verticesT, BaseOfTriangle, HeightOfTriangle)
+local Triangle = display.newPolygon(100, 60, verticesT)
 
 --set the colour of the triangle
 Triangle: setFillColor(0.6,0.1,0.3)
@@ -95,7 +93,3 @@ areaTextH.y = 300
 
 --set the colour of the newText
 areaTextH:setTextColor(249/255,248/255,121/255)
-
-
-
-
