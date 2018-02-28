@@ -16,14 +16,16 @@ local Triangle
 local Pentagon
 local Quadrilateral
 local Hexagon
+local RoundedRectangle
 local verticesT = {100,180, 20,80, -90,180}
 local verticesP = {0,-74, 74,-20, 46,68, -46,68, -74,-20}
 local verticesQ = {0,-74, 74,-20, 46,68, -46,68}
-local verticesH = {10,-80,60,-20,10,-30,-10,30,-100,80,-60,20}
+local verticesH = {10,-80,60,-20,10,-30,-10,30,-100,80,-80,20}
 local textSize = 20
 local areaTextT
 local areaTextP
 local areaTextQ
+local areaTextR
 
 --draw a triangle
 local Triangle = display.newPolygon(100, 60, verticesT)
@@ -65,7 +67,7 @@ local Quadrilateral = display.newPolygon(100, 220, verticesQ)
 
 Quadrilateral: setFillColor(0.1,0.5,0.6)
 
---write the name of the triangle underneath it
+--write the name of the quadrilateral underneath it
 areaTextQ = display.newText("Quadrilateral", 0, 0, Arial, 24)
 
 --anchor the text and set its (x,y) position
@@ -92,4 +94,30 @@ areaTextH.x = 400
 areaTextH.y = 300
 
 --set the colour of the newText
+<<<<<<< HEAD
 areaTextH:setTextColor(249/255,248/255,121/255)
+=======
+areaTextH:setTextColor(249/255,248/255,121/255)
+
+--draw a rounded rectangle 
+local RoundedRectangle = display.newRoundedRect(250, 140, 150, 50, 12)
+
+Quadrilateral: setFillColor(0.1,0.5,0.6)
+
+--write the name of the quadrilateral underneath it
+areaTextR = display.newText("Rounded Rectangle", 250, 180, Arial, 24)
+
+--anchor the text and set its (x,y) position
+areaTextQ.achorX = 0
+areaTextQ.anchorY = 0
+areaTextQ.x = 100
+areaTextQ.y = 300
+
+--set the colour of the newText
+areaTextQ:setTextColor(143/255,36/255,36/255)
+
+
+
+
+
+>>>>>>> fb4b209c27d8b0b191581962df053e9ce8813b5b
