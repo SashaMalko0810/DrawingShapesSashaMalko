@@ -19,17 +19,21 @@ local Hexagon
 local RoundedRectangle
 local Triangle2
 local Rectangle
+local Heptagon 
+local Octagon 
 local verticesT = {100,180, 20,80, -90,180}
 local verticesP = {0,-74, 74,-20, 46,68, -46,68, -74,-20}
-local verticesQ = {0,-74, 74,-20, 46,68, -46,68}
+local verticesQ = {0,-50, 74,-20, 46,68, -46,68}
 local verticesH = {10,-80,60,-20,10,-30,-10,30,-100,80,-80,20,}
-local verticesTT= { 0,-35, 37,30, -37,30}
+local verticesT2= { 0,-35, 37,30, -37,30}
+local verticesHe = {10,-50, 20,-30, 90,-30, 43,30, 70,30, 10,45, -20,70}
+local verticesO = {10,-50, 20,-30, 90,-30, 43,30, 70,30, 10,45, -20,70, -43,15}
 local textSize = 20
-local areaTextT
-local areaTextP
-local areaTextQ
-local areaTextR
-local areaTextRR
+local shapeTextT
+local shapeTextP
+local shapeTextQ
+local shapeTextR
+local shapeTextRR
 local widthR = 150
 local heightR = 50
 local radiusR = 12
@@ -38,16 +42,16 @@ local widthOfRectangle = 50
 local heightOfRectangle = 50
 
 --draw a triangle
-local Triangle = display.newPolygon(95, 50, verticesT)
+local Triangle = display.newPolygon(95, 30, verticesT)
 
 --set the colour of the triangle
 Triangle: setFillColor(0.6,0.1,0.3)
 
 --write the name of the triangle underneath it
-areaTextT = display.newText("Triangle", 95, 120, Arial, 24)
+shapeTextT = display.newText("Triangle", 95, 90, Arial, 24)
 
 --set the colour of the newText
-areaTextT:setTextColor(36/255,71/255,143/255)
+shapeTextT: setTextColor(36/255,71/255,143/255)
 
 --draw a hexagon
 local Pentagon = display.newPolygon(406, 50, verticesP)
@@ -55,21 +59,21 @@ local Pentagon = display.newPolygon(406, 50, verticesP)
 Pentagon:setFillColor(0.6,0.1,0.1)
 
 --write the name of the pentagon underneath it
-areaTextP = display.newText("Pentagon", 406, 140, Arial, 24)
+shapeTextP = display.newText("Pentagon", 406, 140, Arial, 24)
 
 --set the colour of the newText
-areaTextP:setTextColor(94/255,36/255,143/255)
+shapeTextP:setTextColor(94/255,36/255,143/255)
 
 --draw a quadrilateral 
-local Quadrilateral = display.newPolygon(90, 220, verticesQ)
+local Quadrilateral = display.newPolygon(90, 245, verticesQ)
 
 Quadrilateral: setFillColor(0.1,0.5,0.6)
 
 --write the name of the quadrilateral underneath it
-areaTextQ = display.newText("Quadrilateral", 80, 310, Arial, 24)
+shapeTextQ = display.newText("Quadrilateral", 80, 325, Arial, 24)
 
 --set the colour of the newText
-areaTextQ:setTextColor(143/255,36/255,36/255)
+shapeTextQ:setTextColor(143/255,36/255,36/255)
 
 --draw a hexagon 
 local Hexagon = display.newPolygon(400, 240, verticesH)
@@ -77,45 +81,68 @@ local Hexagon = display.newPolygon(400, 240, verticesH)
 Hexagon:setFillColor(0.1,0.6,0.2)
 
 --write the name of the hexagon underneath it
-areaTextH = display.newText("Hexagon", 410, 310, Arial, 24)
-
-
-areaTextH:setTextColor(249/255,248/255,121/255)
-
-areaTextH:setTextColor(249/255,248/255,121/255)
-
---draw a rounded rectangle 
-local RoundedRectangle = display.newRoundedRect(260, 140, 150, 50, 12)
-
-RoundedRectangle: setFillColor(0.5,0.9,1)
-
---write the name of the quadrilateral underneath it
-areaTextR = display.newText("Rounded Rectangle", 260, 180, Arial, 24)
+shapeTextH = display.newText("Hexagon", 410, 310, Arial, 24)
 
 --set the colour of the newText
-areaTextR:setTextColor(195/255,21/255,170/255)
+shapeTextH:setTextColor(249/255,248/255,121/255)
 
---calculate the area
-areaR = (PI * radiusR^2) + (widthR * heightR)
+--draw a rounded rectangle 
+local RoundedRectangle = display.newRoundedRect(100, 130, 150, 50, 12)
 
---write the area of the rounded rectangle underneath it
-areaTextRR = display.newText("The area of this \n rounded rectangle \n with a width of " ..
-	widthR .. " \n and a height of " .. heightR .. " \n and a radius of " .. radiusR .. " is \n" ..
-	areaR .. " pixels^2.", 265,50, Arial, 17)
+--set the colour of the rounded rectangle
+RoundedRectangle: setFillColor(0.5,0.9,1)
 
-areaTextRR:setTextColor (0,0,0)
+--write the name of the rounded rectangle underneath it
+shapeTextRR = display.newText("Rounded Rectangle", 100, 170, Arial, 24)
 
-Rectangle = display.newRect (240,290, widthOfRectangle, heightOfRectangle)
+--set the colour of the newText
+shapeTextRR:setTextColor(195/255,21/255,170/255)
 
+--draw a rectangle
+Rectangle = display.newRect (190,290, widthOfRectangle, heightOfRectangle)
+
+--set the colour of the rectangle
 Rectangle:setFillColor(1,1,0.02)
 
-Triangle2= display.newPolygon(240,240,verticesTT)
+--draw a triangle
+Triangle2= display.newPolygon(190,240,verticesT2)
 
+--set the colour of the triangle
 Triangle2:setFillColor(1,1,0.02)
 
-areaTextTT = display.newText ("House", 240, 325, Arial, 24)
+--write the name of the image underneath it
+shapeTextT2 = display.newText ("House", 190, 325, Arial, 24)
 
-areaTextTT:setTextColor(255/255,7/255,112/255)
+--set the colour of the newText
+shapeTextT2:setTextColor(255/255,7/255,112/255)
+
+--draw a heptagon
+ local Heptagon = display.newPolygon (250,40, verticesHe)
+
+ --set the colour of the heptagon 
+Heptagon:setFillColor(1,0.3, 0.2)
+
+--write the name of the heptagon underneath it 
+shapeTextHe = display.newText("Heptagon", 265, 90, Arial, 24)
+
+--set the colour of the newText
+shapeTextHe:setTextColor(156/255,51/255,255/255)
+
+--draw an octogon
+local Octagon = display.newPolygon (270,190, verticesO)
+
+--set the colour of the octogon
+Octagon:setFillColor(1,0.2,0.7)
+
+--write the name of the octagon underneath it
+shapeTextO = display.newText("Octagon", 290, 240, Arial, 24)
+
+--set the colour of the newText
+shapeTextO:setTextColor(149/255,15/255,151/255)
+
+
+
+
  
 
 
